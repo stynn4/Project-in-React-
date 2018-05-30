@@ -1,0 +1,214 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.mainView {
+    @include gradient; 
+}
+
+$columns: 6;
+$base-width: 100% / $columns;
+
+.grid-container {  
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .row:before, .row:after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    @for $X from 1 through $columns {
+        .col-#{$X} {
+            width: $base-width * $X;
+            float: left;
+        }
+    }
+    
+    //header
+    .home {
+        height: 80vh;
+        background: map-get($colors, eventBoxBackground);
+    }
+    
+    .home > p {
+        font-size: 15vh;
+        text-transform: uppercase;
+        color: map-get($colors, main);
+        margin-left: 3vw;
+        padding-top: 20vh;
+    }
+
+    .underline {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80vw;
+        margin-left: 3vw;
+    }
+    
+    .underline div {
+        width: 13vw;
+        height: 1.5vh;
+        margin-right: 1vw;
+        @include shadowEffect;
+    }
+
+    //all sections
+    //textTyper
+    .textTyper {
+        @include textTyper;
+        height: 80vh;
+    }
+
+    // codeBox
+    .codeBoxMin {
+        height: 20vh;
+    }
+
+    .codeBoxMin button {
+        @include button;
+        position: absolute;
+        left: 87vw;
+        top: 88vh;
+    }
+
+    .codeBoxMax {
+        height: 30vh;
+    }
+
+    // fullCodeHidden
+    .fullCodeHide {
+        display: none !important;
+    }
+
+    //fullCodeShown
+    .fullCodeShow {
+        height: 80vh;
+        position: absolute;
+        top: 15vh;
+        background: map-get($colors, textTyperBackground);
+        box-shadow: 0 0 1vh map-get($colors, textTyperColor);
+    }
+
+    //footer
+    .footer {
+        height: 5vh;
+    }
+
+    //section3
+    .displayApiBox {
+        height: 60vh;
+    }
+
+    .hideApiBox {
+        background: yellow;
+    }
+    
+      
+    @media (max-width: 767px) {
+
+        .col-1 {
+            width: $base-width * 6;
+            float: none;
+        }
+   
+        .col-2 {
+            width: $base-width * 6;
+            float: none;
+        }
+  
+        .col-3 {
+            width: $base-width * 6;
+            float: none;
+        }
+
+        .col-4 {
+            width: $base-width * 6;
+            float: none;
+        }
+
+        .col-6 {
+            width: $base-width * 6;
+            float: none;
+        }
+
+        //header
+        .home {
+            height: 75vh;
+        }
+
+        .home > p {
+            font-size: 10vh;
+        }
+
+        .underline {
+            width: 90vw;
+        }
+
+        .underline div {
+            height: 1vh;
+        }
+
+        //all sections
+        //textTyper
+        .textTyper {
+          height: 65vh;
+          word-wrap: break-word;
+        }
+
+        //codeBox
+        .codebox {
+            height: 20vh;
+        }
+
+        .codebox button {
+            position: relative;
+            left: 80vw;
+            top: -7vh;
+        }
+
+        //fullCodeShown
+        .fullCodeShow {
+            height: 60vh;
+            width: 100vw;
+            position: absolute;
+            top: 165vh;
+        }
+        
+        .footer {
+          @include gradient; 
+          height: 5vh;
+        }
+
+        //section3
+        .leftApibox, .rightApibox {
+            height: 60vh;
+        }
+    }
+
+    .col-1 {
+      
+        border: 1px solid red;
+    }
+  
+    .col-2 {
+      //height: 80vh;
+      border: 1px solid orange;
+      }
+  
+      .col-3 {
+          border: 1px solid green;
+      }
+  
+      .col-6 {
+          border: 1px solid navy;
+      }
+
+    
+  
+}
